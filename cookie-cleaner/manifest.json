@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "Cookie Cleaner",
+    "description": "Cookie Cleaner is shortcut to clean the cookie of a specific domain website",
+    "version": "1.0",
+    "browser_action": {
+        "default_icon": "images/icon.svg",
+        "default_popup": "views/popup/popup.html"
+    },
+    "options_ui": {
+        "page": "views/options/options.html",
+        "open_in_tab": true
+    },
+    "permissions": [
+        "storage",
+        "declarativeContent",
+        "cookies",
+        "https://*/",
+        "http://*/"
+    ]
+}
