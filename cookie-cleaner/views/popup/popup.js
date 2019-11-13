@@ -4,7 +4,7 @@ let selectedDomain = "";
 
 function load() {
     const btnClean = document.getElementById('btnClean');
-    btnClean.addEventListener('click', removeCookies, false);
+    btnClean.addEventListener('click', cleanUp, false);
 
     const btnOptions = document.getElementById('btnOptions');
     btnOptions.addEventListener('click', openOptions, false);
@@ -29,26 +29,52 @@ function openOptions() {
     }
 }
 
-function removeCookies() {
-    chrome.cookies.getAll({ domain: selectedDomain }, cookies => {
-        const MESSAGE = `The domain ${  selectedDomain  } has ${  cookies.length  } cookies.`;
-        const MESSAGE_2 = `\r\n Are you sure you want to delete them?`;
 
-        if (cookies.length === 0) {
-            return alert(MESSAGE)
-        } else if (!confirm(MESSAGE + MESSAGE_2)) {
-            return console.log('Action "Remove Cookies" was canceled')
-        }
-        console.log('Action "Remove Cookies" is started...')
+function removeCookies(cookies) {
 
+    const removeAllCookies = (cookies) => {
         for (var i = 0; i < cookies.length; i++) {
             const cookie = cookies[i];
             console.log(cookie);
-
             chrome.cookies.remove({
                 url: "https://" + cookie.domain + cookie.path,
                 name: cookie.name
             });
         }
+    }
+
+    chrome.cookies.getAll({ domain: selectedDomain }, cookies => {
+        removeAllCookies(cookies);
     });
+}
+
+function removeLocalStorage() {
+
+    chrome.storage.local.clear();
+    // const removeLocalStorageByKey = key =>
+    //     chrome.storage.local.remove(key, function() {
+    //         const error = chrome.runtime.lastError;
+    //         if (error) {
+    //             console.error(error);
+    //         }
+    //     })
+    // get all keys
+    // chrome.storage.sync.get(null, function(items) {    
+    //     debugger  
+    //     removeLocalStorageByKey(items.domain)
+    // });
+}
+
+function cleanUp() {
+    const MESSAGE = `Are you sure you want to delete all info for The domain ${  selectedDomain  }?`;
+
+    if (!confirm(MESSAGE)) {
+        return console.log('Action "Remove Cookies" was canceled')
+    }
+
+    chrome.cookies.getAll({ domain: selectedDomain }, cookies => {
+        removeCookies(cookies);
+    });
+
+    removeLocalStorage();
 }

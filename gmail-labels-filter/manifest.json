@@ -1,0 +1,35 @@
+{
+    "name": "GMAIL labels filter",
+    "version": "1.0",
+    "description": "GMAIL labels filter",
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "nativeMessaging",
+        "declarativeContent",
+        "storage"
+    ],
+  
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["content_script.js"],
+        "run_at": "document_end"
+    }],
+    "options_page": "options.html",
+    "page_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/get_started16.png",
+            "32": "images/get_started32.png",
+            "48": "images/get_started48.png",
+            "128": "images/get_started128.png"
+        }
+    },
+    "icons": {
+        "16": "images/get_started16.png",
+        "32": "images/get_started32.png",
+        "48": "images/get_started48.png",
+        "128": "images/get_started128.png"
+    },
+    "manifest_version": 2
+}
