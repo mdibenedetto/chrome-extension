@@ -1,0 +1,42 @@
+#workerUserHomePageCommand > div > table > tbody > tr > td > table:nth-child(2) > tbody > tr > td:nth-child(2) > table:nth-child(1) > tbody > tr > td > table > tbody > tr:nth-child(5) > td > table > tbody > tr > td > div.scroll > table > 
+tbody > tr:nth-child(7) *{
+    font-size: 12px !important;
+    color: red;
+    font-weight: bold;;
+}
+
+#workerUserHomePageCommand > div > table > tbody > tr > td > table:nth-child(2) > tbody > tr > td:nth-child(2) > table:nth-child(1) > tbody > tr > td > table > tbody > tr:nth-child(5) > td > table > tbody > tr > td > div.scroll > table > tbody > tr:nth-child(7) > td:nth-child(3) > a
+{ 
+    background-color: #EEEEEE;
+    box-shadow: 0 5px 0 gray;
+  color: blue;
+  padding: 1em 1.5em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#workerUserHomePageCommand > div > table > tbody > tr > td > table:nth-child(2) > tbody > tr > td:nth-child(2) > table:nth-child(1) > tbody > tr > td > table > tbody > tr:nth-child(5) > td > table > tbody > tr > td > div.scroll > table > tbody > tr:nth-child(7) > td:nth-child(3) > a
+:hover {
+  background-color: #b7b3b3;
+  cursor: pointer;
+}
+
+#workerUserHomePageCommand > div > table > tbody > tr > td > table:nth-child(2) > tbody > tr > td:nth-child(2) > table:nth-child(1) > tbody > tr > td > table > tbody > tr:nth-child(5) > td > table > tbody > tr > td > div.scroll > table > tbody > tr:nth-child(7) > td:nth-child(3) > a
+:active {
+  box-shadow: none;
+  top: 5px;
+}
+ 
+input[type="checkbox"]{
+    transform: scale(1.2);
+  cursor: pointer;
+    zoom: 1.5;
+}
+
+
+
+
+body{
+    font-size: 20px!important; 
+}

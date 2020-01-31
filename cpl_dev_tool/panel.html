@@ -1,0 +1,30 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>My Console</title>
+    <link href="panel.css" rel="stylesheet">
+</head>
+
+<body>
+  
+
+    <div class="output">
+        Hi 👋
+        <button id="btnLoad">Load</button> 
+
+        <div class="log">
+            Execute an expression in the command line below (e.g. <code>1+1</code>).
+        </div>
+        <div class="log">
+            The expression is evaluated in the inspected window (content scope).
+        </div>
+    </div>
+    <input class="commandLine"></div>
+</body>
+<script src="panel.js"></script>
+</html>
