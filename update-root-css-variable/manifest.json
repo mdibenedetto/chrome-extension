@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "CSS Variables Viewer",
+  "version": "1.0",
+  "description": "A Chrome extension to view and update CSS variables.",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "nativeMessaging",
+    "storage",
+    "declarativeContent",
+    "cookies"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "host_permissions": ["*://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["helper.js", "content.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ]
+}
