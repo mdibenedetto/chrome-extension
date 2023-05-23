@@ -30,3 +30,24 @@ const getCSSCustomPropIndex = () =>
       ),
     []
   );
+
+function getCSSColorVariables() {
+  const cssCustomVariables = Array.from(
+    // @ts-ignore
+    document.documentElement.computedStyleMap
+      ? // @ts-ignore
+        document.documentElement.computedStyleMap()
+      : getCSSCustomPropIndex()
+  )
+    .filter(
+      ([name, value], i) =>
+        String(name).startsWith('--') && CSS.supports(`color: ${value}`)
+    )
+    .map(([name, value]) => [name, value[0][0]]);
+
+  return cssCustomVariables;
+}
+
+function updateVariable(name, value) {
+  document.documentElement.style.setProperty(name, value);
+}

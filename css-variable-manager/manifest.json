@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "CSS Variables Viewer",
+  "name": "CSS Variable Manager",
   "version": "1.0",
   "description": "A Chrome extension to view and update CSS variables.",
   "permissions": [
