@@ -98,7 +98,7 @@ function loadUI(response, tabs) {
   );
 
   inputValueList.forEach((input) => {
-    input.addEventListener('change', (e) => {
+    input.addEventListener('input', (e) => {
       updateColorPreview();
 
       // @ts-ignore
